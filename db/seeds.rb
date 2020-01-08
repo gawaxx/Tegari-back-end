@@ -25,4 +25,11 @@ while iuser < 11 do
     iuser += 1
 end
 
+ipost = 0
+
+while ipost < 11 do
+    Post.create(user_id: Faker::Number.decimal_part(digits: 1), cate: Faker::Name.first_name, email: Faker::Internet.email, password_digest: "hello", user_name: Faker::Name.middle_name, surname: Faker::Name.last_name, n_of_reports: 0)
+    ipost += 1
+end
+
 puts "Created 10 users"
