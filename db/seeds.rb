@@ -28,7 +28,7 @@ puts "Created 10 users"
 
 ipost = 0
 while ipost < 25 do
-    Post.create(user_id: Faker::Number.decimal_part(digits: 1), category: Faker::Science.element, price: Faker::Number.decimal_part(digits: 3), postcode: Faker::Address.postcode, address: Faker::Address.street_name, city: Faker::Address.city, description: Faker::Hacker.say_something_smart, image_url: "0", condition: "new")
+    Post.create(user_id: Faker::Number.between(from: 143, to: 154), category: Faker::Science.element, price: Faker::Number.decimal_part(digits: 3), postcode: Faker::Address.postcode, address: Faker::Address.street_name, city: Faker::Address.city, description: Faker::Hacker.say_something_smart, image_url: "0", condition: "new")
     puts "Created post number #{ipost}"
     ipost += 1
 end
