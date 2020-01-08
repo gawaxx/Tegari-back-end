@@ -33,3 +33,14 @@ while ipost < 25 do
     ipost += 1
 end
 puts "Created 25 posts"
+
+puts "Creating Admin"
+Admin.create(user_name: Faker::FunnyName.name, password_digest: "hello")
+puts "Created admin"
+
+puts "Creating Save Post"
+isavepost = 0 
+
+while ipost <25 do 
+    SavePost.create(post_id: Faker::Number.between(from: 1, to: 25), user_id: Faker::Number.between(from: 1, to: 10))
+end 
