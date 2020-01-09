@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+
+    skip_before_action :authorized
     def index
         admins = Admin.all
         render json: admins

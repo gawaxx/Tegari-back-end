@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+    skip_before_action :authorized
+    
     def index
         posts = Post.all
         render json: posts

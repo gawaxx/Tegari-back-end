@@ -1,4 +1,6 @@
 class SavePostsController < ApplicationController
+    skip_before_action :authorized
+
     def index
         saveposts = SavePost.all
         render json: saveposts
