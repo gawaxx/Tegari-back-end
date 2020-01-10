@@ -1,5 +1,5 @@
 class SavePostsController < ApplicationController
-    skip_before_action :authorized
+    skip_before_action :set_current_user
 
     def index
         saveposts = SavePost.all
