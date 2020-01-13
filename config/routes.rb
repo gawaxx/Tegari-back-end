@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   # Custom Routes
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
+  get '/users/:id', to: 'users#show'
 
 end
