@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def docreate
-        @user = User.create(email: user_params[:email], points: 0, password: user_params[:email], user_name: "TBA", name: "TBA", surname: "TBA", n_of_reports: 0)
+        @user = User.create(email: user_params[:email], points: 0, password: params[:password], user_name: params[:username], name: params[:name], surname: params[:familyName], n_of_reports: 0)
     end 
 
     def validate_user
