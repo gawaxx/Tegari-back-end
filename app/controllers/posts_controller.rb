@@ -4,7 +4,12 @@ class PostsController < ApplicationController
 
     def index
         posts = Post.all
-        render json: posts
+        if params[:user_id] != nil
+            filtered_post = posts.select{|post| post[:user_id] == params[:user_id].to_i}
+            render json: filtered_post
+        else
+            render json: posts
+        end
     end 
 
     def show 
