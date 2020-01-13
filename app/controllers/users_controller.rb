@@ -27,6 +27,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def docreate
+        @user = User.create(email: user_params[:email], points: 0, password: user_params[:email], user_name: "TBA", name: "TBA", surname: "TBA", n_of_reports: 0)
+    end 
+
     def validate_user
         if logged_in?
             render json: { user: User.new(@current_user), token: issue_token(user_id: @current_user.id) }, status: :accepted
