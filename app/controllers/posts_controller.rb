@@ -7,6 +7,9 @@ class PostsController < ApplicationController
         if params[:user_id] != nil
             filtered_post = posts.select{|post| post[:user_id] == params[:user_id].to_i}
             render json: filtered_post
+        elsif params[:title] != nil 
+            filtered_post = posts.select{|post| post[:title] == params[:title]}
+            render json: filtered_post
         else
             render json: posts
         end
