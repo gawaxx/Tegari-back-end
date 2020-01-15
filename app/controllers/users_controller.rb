@@ -3,7 +3,8 @@ class UsersController < ApplicationController
     skip_before_action :set_current_user
 
     def profile
-        render json: { user: User.new(current_user) }, status: :accepted
+        
+        render json: { user: User.new(@current_user) }, status: :accepted
     end
 
     def index
@@ -20,6 +21,7 @@ class UsersController < ApplicationController
         @user = User.create(user_params)
         if @user.valid?
             @token = encode_token({ user_id: @user.id })
+            set_current_user
             render json: { user: @user, jwt: @token }, status: :created
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:user_name, :password_digest, :email, :name, :surname, :n_of_reports, :points)
+        params.require(:user).permit(:user_name, :password_digest, :email, :name, :surname, :n_of_reports, :points, :familyName)
     end
 
     def user_login_params

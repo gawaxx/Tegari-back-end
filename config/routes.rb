@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile'
   get '/users/:id', to: 'users#show'
   post '/users/create', to: 'users#docreate'
+  get '/validate_user', to: 'users#validate_user'
 
 end
