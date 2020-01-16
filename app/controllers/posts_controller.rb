@@ -10,6 +10,9 @@ class PostsController < ApplicationController
         elsif params[:title] != nil 
             filtered_post = posts.select{|post| post[:title].split(" ").include? params[:title]}
             render json: filtered_post
+        elsif params[:category] != nil 
+            filtered_post = posts.select{|post| post[:category] == params[:category]}
+            render json: filtered_post
         else
             render json: posts
         end
