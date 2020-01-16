@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :set_current_user
+    skip_before_action :set_current_user, only:[:create]
 
     def profile
         
@@ -22,7 +22,8 @@ class UsersController < ApplicationController
         if @user.valid?
             @token = encode_token({ user_id: @user.id })
             set_current_user
-            render json: { user: @user, jwt: @token }, status: :created
+            print "hey"
+            render json: { jwt: @token }, status: :created
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
             print user_params
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
 
     def validate_user
         if logged_in?
-            render json: { user: User.new(@current_user), token: issue_token(user_id: @current_user.id) }, status: :accepted
+            render json: { user: @current_user }, status: :accepted
         else 
             render json: { error: 'invalid token' }, status: :unauthorized
         end
