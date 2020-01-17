@@ -17,6 +17,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def pointsChange
+        # byebug
+        user = User.find_by(id: params[:id])
+        user.update(points: user.points + 20)
+    end 
+
     def create
         @user = User.create(user_params)
         if @user.valid?

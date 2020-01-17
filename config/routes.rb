@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   post '/users/create', to: 'users#docreate'
   get '/validate_user', to: 'users#validate_user'
+  get '/users/:id/morepoints', to: 'users#pointsChange'
 
 end
