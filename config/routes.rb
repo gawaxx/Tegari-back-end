@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post '/users/create', to: 'users#docreate'
   get '/validate_user', to: 'users#validate_user'
   get '/users/:id/morepoints', to: 'users#pointsChange'
+  delete '/posts/:id/destroy', to: 'posts#destroy'
 
 end

@@ -18,6 +18,14 @@ class PostsController < ApplicationController
         end
     end 
 
+    def destroy 
+        post = Post.find_by(id: params[:id])
+        # byebug
+        if post.user_id == params[:userid]
+            post.delete()
+        end 
+    end
+
     def create 
         post = Post.create(title: params[:title], user_id: params[:user_id], price: params[:price].to_i, postcode: params[:postcode], city: params[:city], description: params[:description], image_url: params[:image_url], condition: params[:condition], urgent: false, category: params[:category])
         render json: post
