@@ -37,7 +37,8 @@ class UsersController < ApplicationController
     end
 
     def docreate
-        @user = User.create(email: user_params[:email], points: 0, password: params[:password], user_name: params[:username], name: params[:name], surname: params[:familyName], n_of_reports: 0)
+        new_user = User.create(email: user_params[:email], points: 0, password: params[:password], user_name: params[:username], name: params[:name], surname: params[:familyName], n_of_reports: 0)
+        render json: new_user
     end 
 
     def validate_user
