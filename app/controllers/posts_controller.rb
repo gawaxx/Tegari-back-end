@@ -33,6 +33,7 @@ class PostsController < ApplicationController
 
     def show 
         post = Post.find_by(id: params[:id])
-        render json: post
+        user = User.find_by(id: post.user_id)
+        render json: [post, user]
     end
 end
