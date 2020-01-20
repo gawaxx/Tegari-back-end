@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   delete '/posts/:id/destroy', to: 'posts#destroy'
   post 'reports/docreate', to: 'reports#docreate'
   post 'saveposts', to: 'save_posts#create'
-  patch 'posts', to: 'posts#edit'
+  patch 'posts', to: 'posts#update'
 
 end
