@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     def show 
         user = User.find_by(id: params[:id])
-        render json: user
+        render json: user.to_json(include: [:posts])
     end
 
     def pointsChange
