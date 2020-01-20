@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get '/users/:id/morepoints', to: 'users#pointsChange'
   delete '/posts/:id/destroy', to: 'posts#destroy'
   post 'reports/docreate', to: 'reports#docreate'
-  post 'saveposts/docreate', to: 'save_posts#docreate'
+  post 'saveposts', to: 'save_posts#create'
 
 end
