@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
         render json: report
     end
 
-    def create
+    def docreate
         report = Report.create(user_reported_id: params[:user_reported_id], user_reporting_id: params[:user_reporting_id], reason_reporting: params[:reason_reporting], post_id_reported: params[:post_id_reported])
         render json: report
     end 

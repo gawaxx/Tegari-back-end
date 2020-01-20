@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/validate_user', to: 'users#validate_user'
   get '/users/:id/morepoints', to: 'users#pointsChange'
   delete '/posts/:id/destroy', to: 'posts#destroy'
+  post 'reports/docreate', to: 'reports#docreate'
 
 end
