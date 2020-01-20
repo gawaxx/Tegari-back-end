@@ -12,6 +12,7 @@ class SavePostsController < ApplicationController
     end
 
     def docreate
+        post_to_save = Post.find_by(id: params[:post_id])
         new_savepost = SavePost.create(user_id: params[:user_id], post_id: params[:post_id])
         render json: new_savepost
     end 
