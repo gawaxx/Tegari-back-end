@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_reported_id: 1
+  user_reporting_id: 1
+  reason_reporting: MyString
+  post_id_reported: 1
+
+two:
+  user_reported_id: 1
+  user_reporting_id: 1
+  reason_reporting: MyString
+  post_id_reported: 1
