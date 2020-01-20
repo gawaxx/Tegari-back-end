@@ -31,6 +31,10 @@ class PostsController < ApplicationController
         render json: post
     end 
 
+    def edit 
+        byebug
+    end
+
     def show 
         post = Post.find_by(id: params[:id])
         user = User.find_by(id: post.user_id)
