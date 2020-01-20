@@ -32,8 +32,8 @@ class PostsController < ApplicationController
     end 
 
     def update 
-        post = Post.find_by(id: params[:id])
-        post.update(title: params[:title], user_id: params[:user_id], price: params[:price].to_i, postcode: params[:postcode], city: params[:city], description: params[:description], image_url: params[:image_url], condition: params[:condition], urgent: false, category: params[:category])
+        post = Post.find_by(id: params[:post][:id])
+        post.update(title: params[:post][:title], user_id: params[:post][:user_id], price: params[:post][:price].to_i, postcode: params[:post][:postcode], city: params[:post][:city], description: params[:post][:description], image_url: params[:post][:image_url], condition: params[:post][:condition], urgent: false, category: params[:post][:category])
         render json: post
     end
 
