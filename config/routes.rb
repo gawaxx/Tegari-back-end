@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/validate_user', to: 'users#validate_user'
   get '/users/:id/morepoints', to: 'users#pointsChange'
   patch 'users', to: 'users#update'
+  delete '/users', to: 'users#destroy'
 
   post '/login', to: 'auth#create'
   

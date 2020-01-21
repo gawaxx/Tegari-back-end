@@ -48,6 +48,14 @@ class UsersController < ApplicationController
         render json: new_user
     end 
 
+    def destroy
+        user = User.find_by(id: params[:userid])
+
+        if user.id == params[:userid]
+            user.delete()
+        end 
+    end
+
     def validate_user
         if logged_in?
             render json: { user: @current_user }, status: :accepted
