@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post 'reports/docreate', to: 'reports#docreate'
   post 'saveposts', to: 'save_posts#create'
   patch 'posts', to: 'posts#update'
+  patch 'users', to: 'users#update'
 
 end

@@ -36,6 +36,12 @@ class UsersController < ApplicationController
         end
     end
 
+    def update 
+        user = User.find_by(id: params[:user][:id])
+        user.update((email: user_params[:user][:email], points: [:user][:points], password: params[:user][:password], user_name: params[:user][:username], name: params[:user][:name], surname: params[[:user]:familyName], n_of_reports: 0))
+        render json: user
+    end
+
     def docreate
         new_user = User.create(email: user_params[:email], points: 0, password: params[:password], user_name: params[:username], name: params[:name], surname: params[:familyName], n_of_reports: 0)
         render json: new_user
