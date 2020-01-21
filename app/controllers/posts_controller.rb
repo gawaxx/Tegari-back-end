@@ -4,15 +4,24 @@ class PostsController < ApplicationController
 
     def index
         posts = Post.all
+
         if params[:user_id] != nil
             filtered_post = posts.select{|post| post[:user_id] == params[:user_id].to_i}
             render json: filtered_post
+
+        elsif params[:title] && params[:category]
+            filtered_post = posts.select{|post| post[:title].split(" ").include? params[:title] }
+            full_filtered_post = filtered_post.select{ |post| post[:category] == params[:category]}
+            render json: full_filtered_post
+
         elsif params[:title] != nil 
             filtered_post = posts.select{|post| post[:title].split(" ").include? params[:title]}
             render json: filtered_post
+
         elsif params[:category] != nil 
             filtered_post = posts.select{|post| post[:category] == params[:category]}
             render json: filtered_post
+            
         else
             render json: posts
         end
