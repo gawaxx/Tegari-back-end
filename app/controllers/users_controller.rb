@@ -21,6 +21,7 @@ class UsersController < ApplicationController
         # byebug
         user = User.find_by(id: params[:id])
         user.update(points: user.points + 20)
+        render json: user
     end 
 
     def create
