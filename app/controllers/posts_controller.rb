@@ -37,6 +37,7 @@ class PostsController < ApplicationController
 
     def create 
         post = Post.create(title: params[:title], user_id: params[:user_id], price: params[:price].to_i, postcode: params[:postcode], city: params[:city], description: params[:description], image_url: params[:image_url], condition: params[:condition], urgent: false, category: params[:category])
+        #post = Post.create(post_params)
         render json: post
     end 
 
@@ -51,4 +52,11 @@ class PostsController < ApplicationController
         user = User.find_by(id: post.user_id)
         render json: [post, user]
     end
+
+    private 
+
+    def post_params 
+        params.require(:post).permit(:title, :user_id, :price, :postcode, :city, :description, :image_url, :condition, :urgent, :category)
+    end 
+
 end
