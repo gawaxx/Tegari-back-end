@@ -4,6 +4,6 @@ This project is aimed at tackling the rampant scams on customer to customer sell
 
 Built as an API with Ruby on Rails based on the MVC patern. It makes use of Active Record to interact with a Postgres Database.
 
-All of this was done as part of my last project at Flatiron School
+All of this was done as part of my last project at Flatiron School.
 
 LinkedIn: linkedin.com/in/jules-blanc-29a36b179
